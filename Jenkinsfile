@@ -16,6 +16,11 @@ pipeline {
             sh "docker build -t cwai96/realworld_frontend:v1.0.$BUILD_NUMBER ."
         }
     }
+    stage('Deploy to Docker Hub') {
+        steps {
+            sh "docker push cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
+        }
+    }
   }
 }
 
