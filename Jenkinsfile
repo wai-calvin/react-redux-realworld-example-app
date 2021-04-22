@@ -1,6 +1,7 @@
 pipeline {
   parameters {
-        password(name: 'username', defaultValue: 'SECRET')
+        // password(name: 'username', defaultValue: 'SECRET')
+        string(name: 'username', defaultValue: 'cwai96')
         password(name: 'password', defaultValue: 'SECRET')
   }
   agent any
