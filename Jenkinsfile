@@ -1,8 +1,8 @@
 pipeline {
   parameters {
         // password(name: 'username', defaultValue: 'SECRET')
-        string(name: "username", defaultValue: 'cwai96')
-        password(name: "password", defaultValue: 'SECRET')
+        string(name: "user", defaultValue: 'cwai96')
+        password(name: "pass", defaultValue: 'SECRET')
   }
   agent any
   stages {
@@ -14,7 +14,7 @@ pipeline {
     stage('Deploy to Docker Hub') {
         steps {
             // sh 'docker login --username="${username}" --password="${password}"'
-            sh "docker login --username=${username} --password=${password}"
+            sh "docker login --username=${user} --password=${pass}"
             sh "docker push cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
         }
     }
