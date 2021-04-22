@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Deploy to Docker Hub') {
         steps {
-            sh 'docker login --username="${Username}" --password="${Password}"'
+            sh 'docker login --username="${username}" --password="${password}"'
             sh "docker push cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
         }
     }
