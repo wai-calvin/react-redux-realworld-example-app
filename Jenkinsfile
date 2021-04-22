@@ -11,21 +11,11 @@ pipeline {
         git 'https://github.com/wai-calvin/react-redux-realworld-example-app.git'
       }
     }
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    stage('Build Frontend') {
+        steps {
+            sh "docker build -t cwai96/realworld_frontend:v1.0.$BUILD_NUMBER ."
         }
-      }
-    }
-    stage('Deploy Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
-      }
     }
   }
 }
+
