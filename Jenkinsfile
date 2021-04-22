@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build Frontend') {
         steps {
-            sh "sudo docker build -t cwai96/realworld_frontend:$BUILD_NUMBER ."
+            sh "docker build -t cwai96/realworld_frontend:$BUILD_NUMBER ."
         }
     }
     // stage('Building image') {
