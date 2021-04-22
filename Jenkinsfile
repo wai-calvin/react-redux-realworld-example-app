@@ -1,8 +1,7 @@
 pipeline {
-  environment {
-    registry = "cwai96/realworld_frontend"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
+  parameters {
+        password(name: 'username', defaultValue: 'SECRET')
+        password(name: 'password', defaultValue: 'SECRET')
   }
   agent any
   stages {
@@ -18,7 +17,7 @@ pipeline {
     }
     stage('Deploy to Docker Hub') {
         steps {
-            sh "docker tag 542a77a829ee cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
+            sh 'docker login --username="${Username}" --password="${Password}"'
             sh "docker push cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
         }
     }
