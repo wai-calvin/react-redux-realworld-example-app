@@ -18,6 +18,7 @@ pipeline {
     }
     stage('Deploy to Docker Hub') {
         steps {
+            sh "docker tag 542a77a829ee cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
             sh "docker push cwai96/realworld_frontend:v1.0.$BUILD_NUMBER"
         }
     }
