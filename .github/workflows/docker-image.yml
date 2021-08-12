@@ -18,9 +18,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }} # - must be in GitHub Secrets!
       - uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile
-          tags: wai-calvin/real-world-frontend:0.0.1
+          repository: wai-calvin/react-redux-realworld-example-app
+          tags: latest
           push: true
           secrets: |
             GIT_AUTH_TOKEN=${{ github.token }}
