@@ -18,6 +18,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }} # - must be in GitHub Secrets!
       - uses: docker/build-push-action@v2
         with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           tags: latest
           push: true
 
