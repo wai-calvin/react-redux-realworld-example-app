@@ -21,7 +21,4 @@ jobs:
           repository: wai-calvin/react-redux-realworld-example-app
           tags: latest
           push: true
-          secrets: |
-            GIT_AUTH_TOKEN=${{ github.token }}
-
 
